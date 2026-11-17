@@ -31,12 +31,17 @@ m <- sround(cc2$date, 10000) / 10000                 # dates stored as MDDYY
 d <- sround(cc2$date - m * 10000, 100) / 100
 y <- 2000 + cc2$date - m * 10000 - d * 100
 cc2$date <- y * 10000 + m * 100 + d
+
+# I had to consult with claude to interpret the Stata file in order to
+# figure out this issue, below is Claude's explanation of why the fix
+# exists:
+
 # In Stata, cc2's date variable is stored as a float (single precision).
 # Floats can't hold an odd 8-digit number like 20020225 exactly; it is
 # rounded to the nearest even value (20020224). This shifts odd days by one
 # and is why MergeData.do later fixes day==0 and day==32. Copy it here so
 # the sample and dates match Davis exactly.
-cc2$date <- 2 * round(cc2$date / 2)     # R rounds .5 to even, like a float
+cc2$date <- 2 * round(cc2$date / 2)     
 cc2 <- cc2[!lt(cc2$date, 20001300), keep]
 
 # --- Lyon County, spring 2002 file (lines 45-59) ------------------------------
@@ -65,10 +70,10 @@ df$class[!is.na(cl) & cl > 3.5 & cl < 4]   <- 4
 df$class[gt(df$class, 5)] <- 0
 df$parcel <- 2e8 * df$cc + 3e8 * df$lc + df$parcel   # unique ids (line 82)
 
-# --- Impute missing house characteristics from other sales of the same
-#     parcel (lines 85-103). Stata processes rows top to bottom, so this is
-#     done with loops to copy that behavior. Davis notes results are the
-#     same without it.
+# Impute missing house characteristics from other sales of the same
+# parcel (lines 85-103). Stata processes rows top to bottom, so this is
+# done with loops to copy that behavior. Davis notes results are the
+# same without it.
 df <- df[order(df$parcel), ]
 impute_pass <- function(df, dir) {
   n <- nrow(df); p <- df$parcel
