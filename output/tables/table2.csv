@@ -1,0 +1,6 @@
+"county","period","mean_log_price","sd","n","estimate","se"
+"Churchill","1990-1999",11.587,0.408,2800,NA,NA
+"Churchill","2000-2002",11.55,0.407,796,NA,NA
+"Lyon","1990-1999",11.627,0.403,4323,NA,NA
+"Lyon","2000-2002",11.667,0.342,2285,NA,NA
+"Churchill - Lyon","difference in differences",NA,NA,10204,-0.077,0.019

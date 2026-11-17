@@ -1,0 +1,11 @@
+"county","variable","mean","sd","n"
+"Churchill","realsales",116059.89,52790.51,2495
+"Churchill","acres",1.43,3.97,2495
+"Churchill","sqft",1493.34,460.56,2495
+"Churchill","age",16.89,20.76,2495
+"Churchill","class",1.75,0.59,2495
+"Lyon","realsales",119723.18,55060.12,3683
+"Lyon","acres",1.16,6.21,3683
+"Lyon","sqft",1479.99,437.98,3683
+"Lyon","age",10.83,15.63,3683
+"Lyon","class",2.16,0.76,3683

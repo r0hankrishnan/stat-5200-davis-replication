@@ -1,0 +1,6 @@
+"prior","risk_jan1997","risk_jan2002","value_ols","value_ols_se","value_fe","value_fe_se"
+"Standard prior",2.59,14.52,5.56,0.6,5,0.46
+"Low mean",1.29,13.56,5.4,0.58,4.88,0.44
+"High mean",5.17,16.44,5.89,0.64,5.26,0.48
+"Low variance",2.59,9.81,9.21,0.99,8.29,0.75
+"High variance",2.59,22.58,3.29,0.36,2.97,0.28
